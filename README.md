@@ -102,13 +102,6 @@ FOSSEE Project/
 
 ---
 
-## 📸 Design Screenshots
-*   **Web**: Modern Dark Mode with Glassmorphism components.
-*   **Desktop**: Native system integration with embedded Matplotlib dashboards.
-
 ## 👤 Author
-**Nihal**  
-*Developed for the FOSSEE Project Internship Screening*
+**Nihal Jagdale**  
 
----
-*Built with ❤️ for Science and Open Source*
