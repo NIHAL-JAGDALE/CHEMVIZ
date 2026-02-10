@@ -148,7 +148,12 @@ def generate_summary(df: pd.DataFrame) -> dict:
     distribution_column = None
     
     if categorical_columns:
-        distribution_column = categorical_columns[0]
+        # Prefer columns that likely represent categories (containing 'type' or 'category')
+        type_cols = [c for c in categorical_columns if 'type' in c.lower() or 'category' in c.lower()]
+        if type_cols:
+            distribution_column = type_cols[0]
+        else:
+            distribution_column = categorical_columns[0]
     elif len(df.columns) > 0:
         # Use first column if no categorical columns found
         distribution_column = df.columns[0]
