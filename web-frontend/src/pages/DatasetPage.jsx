@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../App';
 import Sidebar from '../components/Sidebar';
@@ -46,7 +46,7 @@ function DatasetPage() {
             await deleteDataset(deleteModal.id);
 
             if (deleteModal.isSidebar) {
-                if (deleteModal.id == id) {
+                if (deleteModal.id === id) {
                     navigate('/dashboard');
                 } else {
                     loadDatasets();
@@ -64,9 +64,9 @@ function DatasetPage() {
 
     useEffect(() => {
         loadDatasetDetails();
-    }, [id]);
+    }, [loadDatasetDetails]);
 
-    const loadDatasetDetails = async () => {
+    const loadDatasetDetails = useCallback(async () => {
         setLoading(true);
         setError('');
         try {
@@ -87,7 +87,7 @@ function DatasetPage() {
         } finally {
             setLoading(false);
         }
-    };
+    }, [id]);
 
 
     const handleDownloadReport = async () => {
