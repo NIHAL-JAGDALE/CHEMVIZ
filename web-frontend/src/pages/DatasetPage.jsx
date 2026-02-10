@@ -21,18 +21,14 @@ function DatasetPage() {
     const [datasets, setDatasets] = useState([]);
     const [deleteModal, setDeleteModal] = useState({ show: false, id: null, filename: '' });
 
-    useEffect(() => {
-        loadDatasets();
-    }, []);
-
-    const loadDatasets = async () => {
+    const loadDatasets = useCallback(async () => {
         try {
             const data = await getDatasets();
             setDatasets(data);
         } catch (err) {
             console.error(err);
         }
-    };
+    }, []);
 
     const handleSidebarDelete = async (e, datasetId, filename) => {
         e.stopPropagation();
@@ -86,9 +82,12 @@ function DatasetPage() {
     }, [id]);
 
     useEffect(() => {
+        loadDatasets();
+    }, [loadDatasets]);
+
+    useEffect(() => {
         loadDatasetDetails();
     }, [loadDatasetDetails]);
-
 
     const handleDownloadReport = async () => {
         try {

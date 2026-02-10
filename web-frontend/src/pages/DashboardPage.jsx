@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../App';
 import { getDatasets, deleteDataset } from '../services/api';
@@ -12,18 +12,18 @@ function DashboardPage() {
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
 
-    useEffect(() => {
-        loadDatasets();
-    }, []);
-
-    const loadDatasets = async () => {
+    const loadDatasets = useCallback(async () => {
         try {
             const data = await getDatasets();
             setDatasets(data);
         } catch (err) {
             setError('Failed to load datasets');
         }
-    };
+    }, []);
+
+    useEffect(() => {
+        loadDatasets();
+    }, [loadDatasets]);
 
     const handleUploadSuccess = (data) => {
         setSuccess(`Successfully uploaded ${data.filename}`);
