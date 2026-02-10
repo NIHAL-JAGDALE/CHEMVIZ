@@ -62,10 +62,6 @@ function DatasetPage() {
         }
     };
 
-    useEffect(() => {
-        loadDatasetDetails();
-    }, [loadDatasetDetails]);
-
     const loadDatasetDetails = useCallback(async () => {
         setLoading(true);
         setError('');
@@ -88,6 +84,10 @@ function DatasetPage() {
             setLoading(false);
         }
     }, [id]);
+
+    useEffect(() => {
+        loadDatasetDetails();
+    }, [loadDatasetDetails]);
 
 
     const handleDownloadReport = async () => {
