@@ -1,10 +1,12 @@
 # Chemical Equipment Parameter Visualizer
 
 **🚀 Live Demo:** [chemviz-khaki.vercel.app](https://chemviz-khaki.vercel.app)
+
 **🔑 Test Credentials:** 
 - **Username:** `admin`
 - **Password:** `admin123`
 *(Or feel free to Sign Up for a new account)*
+
 
 A comprehensive hybrid **Web + Desktop** application designed for uploading, analyzing, and visualizing chemical equipment data. This project provides a seamless experience for engineers and researchers to manage equipment parameters, generate reports, and visualize trends through interactive charts.
 
