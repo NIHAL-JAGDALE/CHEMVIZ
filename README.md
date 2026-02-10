@@ -15,6 +15,8 @@ A comprehensive hybrid **Web + Desktop** application designed for uploading, ana
 [![React](https://img.shields.io/badge/React-18-61DAFB.svg)](https://reactjs.org/)
 [![PyQt5](https://img.shields.io/badge/PyQt5-5.15-41CD52.svg)](https://www.riverbankcomputing.com/software/pyqt/)
 
+> 💻 **Run Locally:** If you want to run this project on your PC, download or clone the code from the **`Local-Setup`** branch.
+
 ## 🚀 Overview
 
 The system consists of three main components:
